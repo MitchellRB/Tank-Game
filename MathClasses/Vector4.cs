@@ -46,5 +46,24 @@ namespace MathClasses
             return new Vector4(v.x * f, v.y * f, v.z * f, v.w * f);
         }
 
+        public float Dot(Vector4 other)
+        {
+            return 0;
+        }
+
+        public Vector4 Cross(Vector4 other)
+        {
+            return this;
+        }
+
+        public float Magnitude()
+        {
+            return 0;
+        }
+
+        public void Normalize()
+        {
+
+        }
     }
 }
