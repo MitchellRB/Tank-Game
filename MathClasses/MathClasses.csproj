@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colour.cs" />
+    <Compile Include="Matrix2.cs" />
     <Compile Include="Matrix3.cs" />
     <Compile Include="Matrix4.cs" />
     <Compile Include="Program.cs" />

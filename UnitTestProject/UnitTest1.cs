@@ -205,7 +205,7 @@ namespace UnitTestProject
 
             Assert.IsTrue(compare(v4a, new Vector4(0.270935f, -0.0537745f, 0.961094f, 0)));
         }
-        /*
+        
         [TestMethod]
         public void Matrix3SetRotateX()
         {
@@ -465,7 +465,7 @@ namespace UnitTestProject
             Vector4 v4c = m4c * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(31.0490131378f, 39.2981109619f, -54, 0)));
         }
-        */
+        
         [TestMethod]
         public void ColourConstructor()
         {
