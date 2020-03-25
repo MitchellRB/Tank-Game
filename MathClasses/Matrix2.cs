@@ -21,5 +21,25 @@ namespace MathClasses
             m1 = _m1; m2 = _m2;
             m3 = _m3; m4 = _m4;
         }
+
+        public static Matrix2 operator *(Matrix2 m1, Matrix2 m2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Vector2 operator *(Matrix2 m, Vector2 v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateX(float x)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateY(float y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

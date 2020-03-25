@@ -24,5 +24,30 @@ namespace MathClasses
             m7 = _m7; m8 = _m8; m9 = _m9;
         }
 
+        public static Matrix3 operator *(Matrix3 m1, Matrix3 m2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Vector3 operator *(Matrix3 m, Vector3 v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateX(float x)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateY(float y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateZ(float z)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

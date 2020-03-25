@@ -25,5 +25,35 @@ namespace MathClasses
             m9 = _m9; m10= _m10; m11= _m11; m12= _m12;
             m13= _m13; m14= _m14; m15= _m15; m16= _m16;
         }
+
+        public static Matrix4 operator *(Matrix4 m1, Matrix4 m2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Vector4 operator *(Matrix4 m, Vector4 v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateX(float x)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateY(float y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateZ(float z)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetRotateW(float w)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
