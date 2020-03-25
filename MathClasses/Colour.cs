@@ -8,7 +8,7 @@ namespace MathClasses
 {
     public class Colour
     {
-        public UInt32 colour;
+        public uint colour;
 
         public Colour()
         {
@@ -30,7 +30,7 @@ namespace MathClasses
         }
         public void SetRed(byte red)
         {
-            colour = colour & 0x00ffffff;
+            colour &= 0x00ffffff;
             colour |= (uint)red << 24;
         }
 
@@ -40,7 +40,7 @@ namespace MathClasses
         }
         public void SetGreen(byte green)
         {
-            colour = colour & 0xff00ffff;
+            colour &= 0xff00ffff;
             colour |= (uint)green << 16;
         }
 
@@ -50,7 +50,7 @@ namespace MathClasses
         }
         public void SetBlue(byte blue)
         {
-            colour = colour & 0xffff00ff;
+            colour &= 0xffff00ff;
             colour |= (uint)blue << 8;
         }
 
@@ -60,8 +60,8 @@ namespace MathClasses
         }
         public void SetAlpha(byte alpha)
         {
-            colour = colour & 0xffffff00;
-            colour |= (uint)alpha;
+            colour &= 0xffffff00;
+            colour |= alpha;
         }
     }
 }

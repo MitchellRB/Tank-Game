@@ -26,20 +26,9 @@ namespace MathClasses
         {
             return new Matrix2(ml.m1 * mr.m1 + ml.m2 * mr.m3, ml.m1 * mr.m2 + ml.m2 * mr.m4,
                                ml.m3 * mr.m1 + ml.m4 * mr.m3, ml.m3 * mr.m2 + ml.m4 * mr.m4);
-            throw new NotImplementedException();
         }
 
         public static Vector2 operator *(Matrix2 m, Vector2 v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetRotateX(float x)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetRotateY(float y)
         {
             throw new NotImplementedException();
         }

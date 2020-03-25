@@ -53,10 +53,5 @@ namespace MathClasses
         {
             throw new NotImplementedException();
         }
-
-        public void SetRotateW(float w)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
