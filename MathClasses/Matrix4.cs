@@ -52,17 +52,26 @@ namespace MathClasses
 
         public void SetRotateX(float radians)
         {
-            throw new NotImplementedException();
+            Set(1, 0, 0, 0,
+                0, (float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+                0, (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
+                0, 0, 0, 1);
         }
 
         public void SetRotateY(float radians)
         {
-            throw new NotImplementedException();
+            Set((float)Math.Cos(radians), 0, (float)-Math.Sin(radians), 0,
+                0, 1, 0, 0,
+                (float)Math.Sin(radians), 0, (float)Math.Cos(radians), 0,
+                0, 0, 0, 1);
         }
 
         public void SetRotateZ(float radians)
         {
-            throw new NotImplementedException();
+            Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
+                (float)-Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1);
         }
 
         public Matrix4 GetTranspose()
