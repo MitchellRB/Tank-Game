@@ -38,19 +38,32 @@ namespace MathClasses
                                m.m3 * v.x + m.m6 * v.y + m.m9 * v.z);
         }
 
-        public void SetRotateX(float x)
+        public void Set(float _m1, float _m2, float _m3, float _m4, float _m5, float _m6, float _m7, float _m8, float _m9)
         {
-            throw new NotImplementedException();
+            m1 = _m1; m2 = _m2; m3 = _m3;
+            m4 = _m4; m5 = _m5; m6 = _m6;
+            m7 = _m7; m8 = _m8; m9 = _m9;
         }
 
-        public void SetRotateY(float y)
+        public void SetRotateX(float radians)
         {
-            throw new NotImplementedException();
+            Set(1, 0, 0,
+                0, (float)Math.Cos(radians), (float)Math.Sin(radians),
+                0, (float)-Math.Sin(radians), (float)Math.Cos(radians));
         }
 
-        public void SetRotateZ(float z)
+        public void SetRotateY(float radians)
         {
-            throw new NotImplementedException();
+            Set((float)Math.Cos(radians), 0, (float)-Math.Sin(radians),
+                0, 1, 0,
+                (float)Math.Sin(radians), 0, (float)Math.Cos(radians));
+        }
+
+        public void SetRotateZ(float radians)
+        {
+            Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0,
+                (float)-Math.Sin(radians), (float)Math.Cos(radians), 0,
+                0, 0, 1);
         }
         
         public Matrix3 GetTranspose()

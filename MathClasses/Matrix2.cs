@@ -34,6 +34,12 @@ namespace MathClasses
                                m.m2 * v.x + m.m4 * v.y);
         }
 
+        public void Set(float _m1, float _m2, float _m3, float _m4)
+        {
+            m1 = _m1; m2 = _m2;
+            m3 = _m3; m4 = _m4;
+        }
+
         public Matrix2 GetTranpose()
         {
             return new Matrix2(m1, m3, m2, m4);
