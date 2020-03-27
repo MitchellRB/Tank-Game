@@ -40,7 +40,13 @@ namespace MathClasses
             m3 = _m3; m4 = _m4;
         }
 
-        public void SetRotation(float radians)
+        public void SetScale(float x, float y)
+        {
+            m1 = x; m2 = 0;
+            m3 = 0; m4 = y;
+        }
+
+        public void SetRotate(float radians)
         {
             Set((float)Math.Cos(radians), (float)-Math.Sin(radians),
                 (float)Math.Sin(radians), (float)Math.Sin(radians));

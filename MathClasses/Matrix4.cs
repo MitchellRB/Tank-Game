@@ -50,6 +50,14 @@ namespace MathClasses
             m13 = _m13; m14 = _m14; m15 = _m15; m16 = _m16;
         }
 
+        public void SetScale(float x, float y, float z)
+        {
+            m1 = x; m2 = 0; m3 = 0; m4 = 0;
+            m5 = 0; m6 = y; m7 = 0; m8 = 0;
+            m9 = 0; m10 = 0; m11 = z; m12 = 0;
+            m13 = 0; m14 = 0; m15 = 0; m16 = 1;
+        }
+
         public void SetRotateX(float radians)
         {
             Set(1, 0, 0, 0,

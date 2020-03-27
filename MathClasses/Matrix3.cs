@@ -45,6 +45,13 @@ namespace MathClasses
             m7 = _m7; m8 = _m8; m9 = _m9;
         }
 
+        public void SetScale(float x, float y, float z)
+        {
+            m1 = x; m2 = 0; m3 = 0;
+            m4 = 0; m5 = y; m6 = 0;
+            m7 = 0; m8 = 0; m9 = z;
+        }
+
         public void SetRotateX(float radians)
         {
             Set(1, 0, 0,
