@@ -14,6 +14,8 @@ namespace Tank_Game
         protected SceneObject parent = null;
         protected List<SceneObject> children = new List<SceneObject>();
 
+        public SceneObject Parent { get => parent; }
+
         protected Matrix3 localTransform = new Matrix3();
         protected Matrix3 globalTransform = new Matrix3();
 
@@ -45,6 +47,16 @@ namespace Tank_Game
             }
         }
 
+        public int GetChildCount()
+        {
+            return children.Count;
+        }
+
+        public SceneObject GetChild(int index)
+        {
+            return children[index];
+        }
+
         public void UpdateTransform()
         {
             if (parent == null)
@@ -72,22 +84,43 @@ namespace Tank_Game
         {
             if (parent != null)
             {
-                
+                parent.RemoveChild(this);
             }
+
             foreach(var so in children)
             {
                 so.parent = null;
             }
         }
 
-        public virtual void Update()
+        public virtual void OnUpdate()
         {
 
         }
 
-        public virtual void Draw()
+        public void Update()
+        {
+            OnUpdate();
+
+            foreach (var child in children)
+            {
+                child.Update();
+            }
+        }
+
+        public virtual void OnDraw()
         {
 
+        }
+
+        public void Draw()
+        {
+            OnDraw();
+
+            foreach (var child in children)
+            {
+                child.Draw();
+            }
         }
     }
 }
