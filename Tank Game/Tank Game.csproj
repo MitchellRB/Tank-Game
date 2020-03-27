@@ -7,7 +7,7 @@
     <ProjectGuid>{9C50E84B-BED8-45BC-9A9A-DCE8BC72464C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Tank_Game</RootNamespace>
-    <AssemblyName>Tank_Game</AssemblyName>
+    <AssemblyName>Tank Game</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,5 +49,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MathClasses\MathClasses.csproj">
+      <Project>{93bc4ff5-4a18-468d-a676-f62f770a6937}</Project>
+      <Name>MathClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\Raylib\Bindings\Raylib.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
