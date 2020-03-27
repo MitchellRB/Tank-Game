@@ -81,6 +81,13 @@ namespace MathClasses
                 0, 0, 0, 1);
         }
 
+        public void RotateX(float radians)
+        {
+            Matrix4 m = new Matrix4();
+            m.SetRotateX(radians);
+            Set(this * m);
+        }
+
         public void SetRotateY(float radians)
         {
             Set((float)Math.Cos(radians), 0, (float)-Math.Sin(radians), 0,
@@ -89,12 +96,26 @@ namespace MathClasses
                 0, 0, 0, 1);
         }
 
+        public void RotateY(float radians)
+        {
+            Matrix4 m = new Matrix4();
+            m.SetRotateY(radians);
+            Set(this * m);
+        }
+
         public void SetRotateZ(float radians)
         {
             Set((float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
                 (float)-Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
+        }
+
+        public void RotateZ(float radians)
+        {
+            Matrix4 m = new Matrix4();
+            m.SetRotateZ(radians);
+            Set(this * m);
         }
 
         public Matrix4 GetTranspose()

@@ -65,6 +65,13 @@ namespace MathClasses
                 (float)Math.Sin(radians), (float)Math.Sin(radians));
         }
 
+        public void Rotate(float radians)
+        {
+            Matrix2 m = new Matrix2();
+            m.SetRotate(radians);
+            Set(this * m);
+        }
+
         public Matrix2 GetTranpose()
         {
             return new Matrix2(m1, m3, m2, m4);
