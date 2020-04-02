@@ -11,6 +11,8 @@ namespace Tank_Game
 {
     class Program
     {
+        public static bool debug = true;
+
         static void Main(string[] args)
         {
             InitWindow(640 * 2, 480 * 2, "Tank game");

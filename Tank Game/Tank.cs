@@ -66,6 +66,7 @@ namespace Tank_Game
                 Bullet bullet = new Bullet(bulletTexture);
                 bullet.SetPosition(globalPosition.x, globalPosition.y);
                 bullet.SetRotate(turret.GlobalRotation);
+                bullet.MoveForeward(40);
                 parent.AddChild(bullet);
             }
         }

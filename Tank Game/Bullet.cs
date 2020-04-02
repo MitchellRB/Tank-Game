@@ -23,11 +23,11 @@ namespace Tank_Game
         public override void OnUpdate()
         {
             MoveForeward(10);
+            if (globalPosition.x < -50 || globalPosition.x > GetScreenWidth() + 50 || globalPosition.y < -50 || globalPosition.y > GetScreenHeight() + 50)
+            {
+                parent.RemoveChild(this);
+            }
         }
 
-        public override void OnDraw()
-        {
-            
-        }
     }
 }

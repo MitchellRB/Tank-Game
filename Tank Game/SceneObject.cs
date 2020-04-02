@@ -148,7 +148,7 @@ namespace Tank_Game
 
         public virtual void OnDraw()
         {
-            DrawRectangle((int)globalPosition.x - 2, (int)globalPosition.y - 2, 5, 5, rl.Color.RED);
+            if (Program.debug) DrawRectangle((int)globalPosition.x - 2, (int)globalPosition.y - 2, 5, 5, rl.Color.RED);
         }
 
         public void Draw()
