@@ -20,6 +20,8 @@ namespace Tank_Game
 
         rl.Texture2D bulletTexture;
 
+        public Controls controls = new Controls();
+
         public Tank() : base()
         {
             AddChildren();
@@ -53,34 +55,34 @@ namespace Tank_Game
 
         public override void OnUpdate()
         {
-            if (IsKeyDown(rl.KeyboardKey.KEY_A))
+            if (IsKeyDown(controls.left))
             {
                 Rotate(-2);
             }
-            if (IsKeyDown(rl.KeyboardKey.KEY_D))
+            if (IsKeyDown(controls.right))
             {
                 Rotate(2);
             }
 
-            if (IsKeyDown(rl.KeyboardKey.KEY_W))
+            if (IsKeyDown(controls.foreward))
             {
                 MoveForeward(2);
             }
-            if (IsKeyDown(rl.KeyboardKey.KEY_S))
+            if (IsKeyDown(controls.back))
             {
                 MoveForeward(-2);
             }
 
-            if (IsKeyDown(rl.KeyboardKey.KEY_Q))
+            if (IsKeyDown(controls.turretLeft))
             {
                 turret.Rotate(-2);
             }
-            if (IsKeyDown(rl.KeyboardKey.KEY_E))
+            if (IsKeyDown(controls.turretRight))
             {
                 turret.Rotate(2);
             }
 
-            if (IsKeyPressed(rl.KeyboardKey.KEY_SPACE))
+            if (IsKeyPressed(controls.shoot))
             {
                 Bullet bullet = new Bullet(bulletTexture);
                 bullet.SetPosition(globalPosition.x, globalPosition.y);

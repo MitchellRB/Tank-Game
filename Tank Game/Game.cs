@@ -19,12 +19,14 @@ namespace Tank_Game
 
         public void Init()
         {
-
+            //Create player
             world.AddChild(tank);
 
             tank.Load(@"..\..\Sprites\PNG\Tanks\tankBlue.png", @"..\..\Sprites\PNG\Tanks\barrelBlue.png", @"..\..\Sprites\PNG\Bullets\bulletBlue.png");
 
             tank.SetPosition(350, 300);
+
+            tank.controls.SetControls(rl.KeyboardKey.KEY_W, rl.KeyboardKey.KEY_S, rl.KeyboardKey.KEY_A, rl.KeyboardKey.KEY_D, rl.KeyboardKey.KEY_Q, rl.KeyboardKey.KEY_E, rl.KeyboardKey.KEY_SPACE);
 
         }
 

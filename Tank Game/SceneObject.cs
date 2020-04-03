@@ -141,6 +141,16 @@ namespace Tank_Game
                 localRotation += 360;
             }
 
+            if (globalRotation >= 360)
+            {
+                globalRotation -= 360;
+            }
+
+            if (globalRotation < 0)
+            {
+                globalRotation += 360;
+            }
+
             UpdateTransform();
         }
 
