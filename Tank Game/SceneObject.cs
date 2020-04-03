@@ -28,9 +28,17 @@ namespace Tank_Game
 
         public float LocalRotation { get => localRotation; }
 
+        public readonly string name;
+
         public SceneObject()
         {
+            Game.sceneObjects.Add(this);
+        }
 
+        public SceneObject(string _name)
+        {
+            Game.sceneObjects.Add(this);
+            name = _name;
         }
 
         public SceneObject AddChild(SceneObject child)
@@ -159,6 +167,11 @@ namespace Tank_Game
             {
                 child.Draw();
             }
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

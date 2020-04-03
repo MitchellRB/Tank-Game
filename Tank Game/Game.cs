@@ -11,9 +11,11 @@ namespace Tank_Game
 {
     class Game
     {
-        Tank tank = new Tank();
+        public SceneObject world = new SceneObject("World");
 
-        public SceneObject world = new SceneObject();
+        Tank tank = new Tank("Tank");
+
+        public static List<SceneObject> sceneObjects = new List<SceneObject>();
 
         public void Init()
         {

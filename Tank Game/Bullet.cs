@@ -13,7 +13,7 @@ namespace Tank_Game
     {
         SpriteObject sprite;
 
-        public Bullet(rl.Texture2D _sprite)
+        public Bullet(rl.Texture2D _sprite) : base()
         {
             sprite = new SpriteObject(_sprite);
             sprite.origin = new Vector2(sprite.Width / 2, sprite.Height / 2);

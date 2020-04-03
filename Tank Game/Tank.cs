@@ -11,13 +11,20 @@ namespace Tank_Game
 {
     class Tank : SceneObject
     {
-        SpriteObject sprite = new SpriteObject();
-        SceneObject turret = new SceneObject();
-        SpriteObject turretSprite = new SpriteObject();
+        SpriteObject sprite = new SpriteObject("TankSprite");
+        SceneObject turret = new SceneObject("Turret");
+        SpriteObject turretSprite = new SpriteObject("TurretSprite");
 
         rl.Texture2D bulletTexture;
 
-        public Tank()
+        public Tank() : base()
+        {
+            AddChild(sprite);
+            AddChild(turret);
+            turret.AddChild(turretSprite);
+        }
+
+        public Tank(string _name) : base(_name)
         {
             AddChild(sprite);
             AddChild(turret);
