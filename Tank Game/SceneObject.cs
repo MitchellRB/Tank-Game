@@ -14,9 +14,13 @@ namespace Tank_Game
         protected SceneObject parent = null;
         protected List<SceneObject> children = new List<SceneObject>();
 
+        public List<SceneObject> Children { get => children; }
+
         public SceneObject Parent { get => parent; }
 
         protected Vector2 globalPosition = new Vector2();
+
+        public Vector2 GlobalPosition { get => globalPosition; }
 
         protected Vector2 localPosition = new Vector2();
 
@@ -32,12 +36,11 @@ namespace Tank_Game
 
         public SceneObject()
         {
-            Game.sceneObjects.Add(this);
+
         }
 
         public SceneObject(string _name)
         {
-            Game.sceneObjects.Add(this);
             name = _name;
         }
 

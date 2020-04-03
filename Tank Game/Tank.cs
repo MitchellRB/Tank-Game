@@ -12,13 +12,18 @@ namespace Tank_Game
     class Tank : SceneObject
     {
         SpriteObject sprite = new SpriteObject("TankSprite");
-        SceneObject turret = new SceneObject("Turret");
+        public SceneObject turret = new SceneObject("Turret");
         SpriteObject turretSprite = new SpriteObject("TurretSprite");
 
-        Vector2 topLeft = new Vector2();
-        Vector2 bottomRight = new Vector2();
-
         rl.Texture2D bulletTexture;
+
+        private Vector2 topLeft = new Vector2();
+
+        public Vector2 TopLeft { get => topLeft; }
+
+        private Vector2 bottomRight = new Vector2();
+
+        public Vector2 BottomRight { get => bottomRight; }
 
         public Controls controls = new Controls();
 
