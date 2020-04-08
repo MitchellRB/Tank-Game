@@ -66,10 +66,18 @@ namespace Tank_Game
             if (IsKeyDown(controls.foreward))
             {
                 MoveForeward(2);
+                if (CheckTankCollision())
+                {
+                    MoveForeward(-2);
+                }
             }
             if (IsKeyDown(controls.back))
             {
                 MoveForeward(-2);
+                if (CheckTankCollision())
+                {
+                    MoveForeward(2);
+                }
             }
 
             if (IsKeyDown(controls.turretLeft))
@@ -89,6 +97,18 @@ namespace Tank_Game
                 bullet.MoveForeward(40);
                 parent.AddChild(bullet);
             }
+        }
+
+        bool CheckTankCollision()
+        {
+            foreach (var item in parent.Children)
+            {
+                if (item != this && item.name.Contains("Player") && globalBox.Overlaps(item.globalBox))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override void OnDraw()
