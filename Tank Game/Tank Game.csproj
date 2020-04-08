@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Box.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Controls.cs" />
     <Compile Include="Conversions.cs" />

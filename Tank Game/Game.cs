@@ -29,6 +29,10 @@ namespace Tank_Game
 
         public void Init()
         {
+            //Setup the world
+            world.localBox.min = new Vector2(0,0);
+            world.localBox.max = new Vector2(Program.screenWidth, Program.screenHeight);
+
             //Create player 1
             world.AddChild(player1);
 
@@ -78,14 +82,19 @@ namespace Tank_Game
             {
                 if (IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) state = gameStates.play;
             }
-            if (state == gameStates.play)
+            else if (state == gameStates.play)
             {
                 world.Update();
             }
-            if (state == gameStates.player1Victory || state == gameStates.player2Victory)
+            else if (state == gameStates.player1Victory || state == gameStates.player2Victory)
             {
                 world.Children.RemoveRange(0, world.Children.Count);
                 if (IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) { state = gameStates.play; Reset(); }
+            }
+
+            if (IsKeyPressed(rl.KeyboardKey.KEY_F1))
+            {
+                Program.debug = !Program.debug;
             }
         }
 

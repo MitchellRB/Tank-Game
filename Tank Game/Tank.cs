@@ -17,14 +17,6 @@ namespace Tank_Game
 
         rl.Texture2D bulletTexture;
 
-        private Vector2 topLeft = new Vector2();
-
-        public Vector2 TopLeft { get => topLeft; }
-
-        private Vector2 bottomRight = new Vector2();
-
-        public Vector2 BottomRight { get => bottomRight; }
-
         public Controls controls = new Controls();
 
         public Tank() : base()
@@ -44,10 +36,10 @@ namespace Tank_Game
             turret.AddChild(turretSprite);
         }
 
-        void UpdateCollider()
+        void CreateCollider()
         {
-            topLeft = globalPosition - sprite.origin;
-            bottomRight = globalPosition + sprite.origin;
+            localBox.min = globalPosition - sprite.origin;
+            localBox.max = globalPosition + sprite.origin;
         }
 
         public void Load(string tankPath, string turretPath, string bulletPath)
@@ -56,10 +48,12 @@ namespace Tank_Game
             turretSprite.Load(turretPath);
             turretSprite.origin.y = 40;
             bulletTexture = LoadTexture(bulletPath);
+            CreateCollider();
         }
 
         public override void OnUpdate()
         {
+            base.OnUpdate();
             if (IsKeyDown(controls.left))
             {
                 Rotate(-2);
@@ -95,17 +89,11 @@ namespace Tank_Game
                 bullet.MoveForeward(40);
                 parent.AddChild(bullet);
             }
-
-            UpdateCollider();
         }
 
         public override void OnDraw()
         {
             base.OnDraw();
-            if (Program.debug)
-            {
-                DrawRectangleLines((int)topLeft.x, (int)topLeft.y, (int)sprite.Width, (int)sprite.Height, rl.Color.RED);
-            }
         }
     }
 }

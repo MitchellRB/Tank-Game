@@ -15,9 +15,13 @@ namespace Tank_Game
 
         public static Game game = new Game();
 
+        public static int screenWidth = 640 * 2;
+
+        public static int screenHeight = 480 * 2;
+
         static void Main(string[] args)
         {
-            InitWindow(640 * 2, 480 * 2, "Tank game");
+            InitWindow(screenWidth, screenHeight, "Tank game");
 
             game.Init();
 

@@ -13,15 +13,20 @@ namespace Tank_Game
     {
         SpriteObject sprite;
 
+        int timer;
+
         public Bullet(rl.Texture2D _sprite) : base()
         {
             sprite = new SpriteObject(_sprite);
             sprite.origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
             AddChild(sprite);
+            localBox = new Box(new Vector2(-5, -5), new Vector2(5, 5));
+            timer = 3;
         }
 
         public override void OnUpdate()
         {
+            base.OnUpdate();
             MoveForeward(10);
             if (globalPosition.x < -50 || globalPosition.x > GetScreenWidth() + 50 || globalPosition.y < -50 || globalPosition.y > GetScreenHeight() + 50)
             {
@@ -31,27 +36,26 @@ namespace Tank_Game
 
             //Check collision
 
-            //Player 1
-            Vector2 topLeft = Program.game.player1.TopLeft/* + Program.game.player1.GlobalPosition;*/;
-            Vector2 bottomRight = Program.game.player1.BottomRight /*+ Program.game.player1.GlobalPosition;*/;
-
-            if (!(globalPosition.x < topLeft.x || globalPosition.x > bottomRight.x || globalPosition.y < topLeft.y || globalPosition.y > bottomRight.y))
+            foreach (var item in parent.Children)
             {
-                Program.game.state = Game.gameStates.player2Victory;
-                parent.RemoveChild(this);
-                return;
+                if (item != this && timer == 0 && globalBox.Overlaps(item.globalBox))
+                {
+                    if (item.name == "Player1")
+                    {
+                        Program.game.state = Game.gameStates.player2Victory;
+                    }
+                    else if (item.name == "Player2")
+                    {
+                        Program.game.state = Game.gameStates.player1Victory;
+                    }
+                }
             }
 
-            //Player 2
-            topLeft = Program.game.player2.TopLeft/* + Program.game.player2.GlobalPosition;*/;
-            bottomRight = Program.game.player2.BottomRight/* + Program.game.player2.GlobalPosition;*/;
-
-            if (!(globalPosition.x < topLeft.x || globalPosition.x > bottomRight.x || globalPosition.y < topLeft.y || globalPosition.y > bottomRight.y))
+            if (timer > 0)
             {
-                Program.game.state = Game.gameStates.player1Victory;
-                parent.RemoveChild(this);
-                return;
+                timer--;
             }
+
         }
 
     }

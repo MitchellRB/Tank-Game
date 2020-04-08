@@ -34,6 +34,10 @@ namespace Tank_Game
 
         public readonly string name;
 
+        public Box localBox = new Box();
+
+        public Box globalBox = new Box();
+
         public SceneObject()
         {
 
@@ -81,6 +85,9 @@ namespace Tank_Game
                 globalPosition = localPosition;
                 globalRotation = localRotation;
             }
+
+                globalBox.min = localBox.min + globalPosition;
+                globalBox.max = localBox.max + globalPosition;
 
             foreach (var child in children)
             {
@@ -169,7 +176,11 @@ namespace Tank_Game
 
         public virtual void OnDraw()
         {
-            if (Program.debug) DrawRectangle((int)globalPosition.x - 2, (int)globalPosition.y - 2, 5, 5, rl.Color.RED);
+            if (Program.debug)
+            {
+                DrawRectangle((int)globalPosition.x - 2, (int)globalPosition.y - 2, 5, 5, rl.Color.RED);
+                DrawRectangleLines((int)globalBox.min.x, (int)globalBox.min.y, (int)globalBox.max.x - (int)globalBox.min.x, (int)globalBox.max.y - (int)globalBox.min.y,rl.Color.RED);
+            }
         }
 
         public void Draw()
