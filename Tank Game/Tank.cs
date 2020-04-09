@@ -66,7 +66,7 @@ namespace Tank_Game
             if (IsKeyDown(controls.foreward))
             {
                 MoveForeward(2);
-                if (CheckTankCollision())
+                if (CheckCollision())
                 {
                     MoveForeward(-2);
                 }
@@ -74,7 +74,7 @@ namespace Tank_Game
             if (IsKeyDown(controls.back))
             {
                 MoveForeward(-2);
-                if (CheckTankCollision())
+                if (CheckCollision())
                 {
                     MoveForeward(2);
                 }
@@ -91,7 +91,7 @@ namespace Tank_Game
 
             if (IsKeyPressed(controls.shoot))
             {
-                Bullet bullet = new Bullet(bulletTexture);
+                Bullet bullet = new Bullet(ref bulletTexture, "Bullet");
                 bullet.SetPosition(globalPosition.x, globalPosition.y);
                 bullet.SetRotate(turret.GlobalRotation);
                 bullet.MoveForeward(40);
@@ -99,11 +99,11 @@ namespace Tank_Game
             }
         }
 
-        bool CheckTankCollision()
+        bool CheckCollision()
         {
             foreach (var item in parent.Children)
             {
-                if (item != this && item.name.Contains("Player") && globalBox.Overlaps(item.globalBox))
+                if (item != this && globalBox.Overlaps(item.GlobalBox))
                 {
                     return true;
                 }

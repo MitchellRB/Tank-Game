@@ -11,11 +11,11 @@ namespace Tank_Game
 {
     class Game
     {
-        public SceneObject world = new SceneObject("World");
+        public SceneObject world;
 
-        public Tank player1 = new Tank("Player1");
+        public Tank player1;
 
-        public Tank player2 = new Tank("Player2");
+        public Tank player2;
 
         public enum gameStates
         {
@@ -30,10 +30,11 @@ namespace Tank_Game
         public void Init()
         {
             //Setup the world
-            world.localBox.min = new Vector2(0,0);
-            world.localBox.max = new Vector2(Program.screenWidth, Program.screenHeight);
+            world = new SceneObject("World",new Box(new Vector2(0,0),new Vector2(Program.screenWidth,Program.screenHeight)));
 
             //Create player 1
+            player1 = new Tank("Player1");
+
             world.AddChild(player1);
 
             player1.Load(@"..\..\Sprites\PNG\Tanks\tankBlue.png", @"..\..\Sprites\PNG\Tanks\barrelBlue.png", @"..\..\Sprites\PNG\Bullets\bulletBlue.png");
@@ -45,6 +46,8 @@ namespace Tank_Game
             player1.controls.SetControls(rl.KeyboardKey.KEY_W, rl.KeyboardKey.KEY_S, rl.KeyboardKey.KEY_A, rl.KeyboardKey.KEY_D, rl.KeyboardKey.KEY_Q, rl.KeyboardKey.KEY_E, rl.KeyboardKey.KEY_Z);
 
             //Create player 2
+            player2 = new Tank("Player2");
+
             world.AddChild(player2);
 
             player2.Load(@"..\..\Sprites\PNG\Tanks\tankRed.png", @"..\..\Sprites\PNG\Tanks\barrelRed.png", @"..\..\Sprites\PNG\Bullets\bulletRed.png");
@@ -59,15 +62,12 @@ namespace Tank_Game
 
         public void Reset()
         {
-            world.AddChild(player1);
 
             player1.SetPosition(350, 300);
 
             player1.SetRotate(0);
 
             player1.turret.SetRotate(0);
-
-            world.AddChild(player2);
 
             player2.SetPosition(950, 300);
 
@@ -88,7 +88,13 @@ namespace Tank_Game
             }
             else if (state == gameStates.player1Victory || state == gameStates.player2Victory)
             {
-                world.Children.RemoveRange(0, world.Children.Count);
+                for (int i = 0; i < world.Children.Count; i++)
+                {
+                    if (world.Children[i].name == "Bullet")
+                    {
+                        world.RemoveChild(world.GetChild(i));
+                    }
+                }
                 if (IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) { state = gameStates.play; Reset(); }
             }
 
@@ -103,7 +109,9 @@ namespace Tank_Game
             if (state == gameStates.play)
             {
                 world.Draw();
+
             }
+                if (Program.debug) DrawFPS(0, 0);
         }
     }
 }

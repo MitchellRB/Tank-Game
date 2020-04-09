@@ -32,11 +32,15 @@ namespace Tank_Game
 
         public float LocalRotation { get => localRotation; }
 
-        public readonly string name;
+        public readonly string name = string.Empty;
 
-        public Box localBox = new Box();
+        protected Box localBox = new Box();
 
-        public Box globalBox = new Box();
+        public Box LocalBox { get => localBox; }
+
+        protected Box globalBox = new Box();
+
+        public Box GlobalBox { get => globalBox; }
 
         public SceneObject()
         {
@@ -46,6 +50,12 @@ namespace Tank_Game
         public SceneObject(string _name)
         {
             name = _name;
+        }
+
+        public SceneObject(string _name, Box _box)
+        {
+            name = _name;
+            localBox = _box;
         }
 
         public SceneObject AddChild(SceneObject child)
@@ -61,11 +71,6 @@ namespace Tank_Game
             {
                 child.parent = null;
             }
-        }
-
-        public int GetChildCount()
-        {
-            return children.Count;
         }
 
         public SceneObject GetChild(int index)

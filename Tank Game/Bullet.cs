@@ -15,13 +15,13 @@ namespace Tank_Game
 
         int timer;
 
-        public Bullet(rl.Texture2D _sprite) : base()
+        public Bullet(ref rl.Texture2D _sprite, string _name) : base(_name)
         {
             sprite = new SpriteObject(_sprite);
             sprite.origin = new Vector2(sprite.Width / 2, sprite.Height / 2);
             AddChild(sprite);
             localBox = new Box(new Vector2(-5, -5), new Vector2(5, 5));
-            timer = 3;
+            timer = 1;
         }
 
         public override void OnUpdate()
@@ -38,7 +38,7 @@ namespace Tank_Game
 
             foreach (var item in parent.Children)
             {
-                if (item != this && timer == 0 && globalBox.Overlaps(item.globalBox))
+                if (item != this && timer == 0 && globalBox.Overlaps(item.GlobalBox))
                 {
                     if (item.name == "Player1")
                     {
