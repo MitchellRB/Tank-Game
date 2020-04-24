@@ -563,5 +563,18 @@ namespace UnitTestProject
 
             Assert.AreEqual<uint>(c.colour, 0x947ad2ff);
         }
+
+        [TestMethod]
+        public void ColourBitshift()
+        {
+            Colour c = new Colour(0x94,0xa3,0x3c,0xff);
+            uint red = c.colour >> 8;
+            red &= 0x00ff0000;
+            c.colour &= 0x0000ffff;
+            c.colour |= red;
+
+            Assert.AreEqual<uint>(c.colour, 0x00943cff);
+            
+        }
     }
 }
